@@ -12,7 +12,8 @@ class MainActivity : AppCompatActivity() {
 
 
     //create items
-    val pcCase = Upgrades("PC Case", 5.0, 0, 1.25)
+    val case = Upgrades("Case", 5.0, 0, 1.25)
+    val motherboard = Upgrades("Motherboard", 20.00, 0, 10.00)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,11 +29,18 @@ class MainActivity : AppCompatActivity() {
                         sleep(1000)
 
                         runOnUiThread {
-                            pcCaseUpgrade.setOnClickListener {
-                                makePurchase(pcCase)
-                                pcCaseTrueCostLabel.text = pcCase.cost.toString()
-                                pcCaseOwnedCountLabel.text = pcCase.count.toString()
-                                pcCaseTrueCostLabel.text = "Cost: $${String.format("%.2f", pcCase.cost)}"
+                            caseBuyButton.setOnClickListener {
+                                makePurchase(case)
+                                caseCost.text = case.cost.toString()
+                                caseOwned.text = "Owned: ${case.count}"
+                                caseCost.text = "Cost: $${String.format("%.2f", case.cost)}"
+                            }
+
+                            motherboardBuyButton.setOnClickListener {
+                                makePurchase(motherboard)
+                                motherboardCost.text = motherboard.cost.toString()
+                                motherboardOwned.text = "Owned: ${motherboard.count}"
+                                motherboardCost.text = "Cost: $${String.format("%.2f", motherboard.cost)}"
                             }
                             money += moneyMul
                             scoreLabel.text= "$${String.format("%.2f", money)}"
@@ -53,7 +61,13 @@ class MainActivity : AppCompatActivity() {
         if (money >= item.cost) {
             money -= item.cost
             item.count++
-            item.cost *= 1.25
+            if (item.name == "Case") {
+                item.cost *= 1.25
+            }
+            if (item.name == "Motherboard") {
+                item.cost *= 2.25
+            }
+
             moneyMul += item.Addedmoney
     }
         else {

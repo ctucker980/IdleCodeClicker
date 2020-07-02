@@ -30,31 +30,52 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/pcCaseTrueCostLabel"
+            android:id="@+id/caseCost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="Cost: $5" />
 
         <Button
-            android:id="@+id/pcCaseUpgrade"
+            android:id="@+id/caseBuyButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PC Case" />
 
         <TextView
-            android:id="@+id/ownedLabel"
+            android:id="@+id/caseOwned"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Owned:" />
+            android:text="Owned: 0" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/pcCaseOwnedCountLabel"
+            android:id="@+id/motherboardCost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="0" />
+            android:text="Cost: $20" />
+
+        <Button
+            android:id="@+id/motherboardBuyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Motherboard" />
+
+        <TextView
+            android:id="@+id/motherboardOwned"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Owned: 0" />
     </LinearLayout>
 
 </LinearLayout>
